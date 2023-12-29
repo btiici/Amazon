@@ -1,0 +1,349 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Roboto, Arial;
+    color: rgb(33, 33, 33);
+    margin: 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  select {
+    cursor: pointer;
+  }
+  
+  input, select, button {
+    font-family: Roboto, Arial;
+  }
+
+
+.checkout-header {
+    display: flex;
+    background-color:  rgb(19, 25, 33);
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+    color: white;
+    z-index: 1000;
+}
+
+.checkout-header-left-section {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.amazon-img {
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+    margin-left: 30px;
+}
+
+.mobile {
+  display: none;
+  width: 35px;
+}
+
+.checkout-header-middle-section {
+    display: flex;
+    max-width: 300px;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.checkout-header-middle-section a {
+    color: rgb(204, 237, 243);
+    font-size: 23px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.checkout-header-right-section {
+    text-align: right;
+    width: 150px;
+    margin-right: 60px;
+  }
+
+  .main {
+    margin-top: 140px;
+    max-width: 1100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 100px;
+    margin-left: auto;
+  margin-right: auto;
+  }
+  
+.title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    column-gap: 12px;
+    align-items: start;
+  }
+
+.items, .payment-summary {
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    padding: 18px;
+}
+
+.items {
+    margin-bottom: 12px;
+}
+
+.payment-summary {
+    padding-bottom: 5px;
+}
+
+.delivery-date {
+    color: rgb(0, 118, 0);
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: 22px;
+  }
+
+.cart-item-details-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    column-gap: 25px;
+  }
+
+.product-image {
+    max-width: 100%;
+    max-height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.product-name {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+.product-price {
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+.product-quantity .link-primary {
+    margin-left: 3px;
+  }
+
+.delivery-options-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+.delivery-option {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+
+.delivery-option-input {
+    margin-left: 0px;
+    cursor: pointer;
+  }
+
+.delivery-option-date {
+    color: rgb(0, 118, 0);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+.delivery-option-price {
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+  }
+
+.payment-summary-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+.payment-summary-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-size: 15px;
+    margin-bottom: 9px;
+  }
+
+.payment-summary-money {
+    text-align: right;
+  }
+
+.subtotal-row .payment-summary-money {
+    border-top: 1px solid rgb(222, 222, 222);
+  }
+  
+.total-row {
+    color: rgb(177, 39, 4);
+    font-weight: 700;
+    font-size: 18px;
+    border-top: 1px solid rgb(222, 222, 222);
+    padding-top: 18px;
+  }
+  
+.place-order-button {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    margin-top: 11px;
+    margin-bottom: 15px;
+  }
+
+.button-primary {
+    color: rgb(33, 33, 33);
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(252, 210, 0);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  }
+
+  .button-primary:hover {
+    background-color: rgb(247, 202, 0);
+    border: 1px solid rgb(242, 194, 0);
+  }
+  
+  .button-primary:active {
+    background: rgb(255, 216, 20);
+    border-color: rgb(252, 210, 0);
+    box-shadow: none;
+  }
+  
+  .limit-text-to-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .link-primary {
+    color: rgb(1, 124, 182);
+    cursor: pointer;
+  }
+  
+  .link-primary:hover {
+    color: rgb(196, 80, 0);
+  }
+  
+  select {
+    color: rgb(33, 33, 33);
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(213, 217, 217);
+    border-radius: 8px;
+    padding: 3px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  }
+  
+  select:focus,
+  input:focus {
+    outline: 2px solid rgb(255, 153, 0);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 575px) {
+    .checkout-header-middle-section {
+        margin-left: 35px;
+      }
+    .main {
+        max-width: 500px;
+      }
+    
+    .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+      .mobile{
+        display: block;
+        margin-left: 3rem;
+      }
+  
+      .amazon-img{
+        display: none;
+      }
+  }
+
+   
+  @media (max-width: 800px) {
+    .main {
+        max-width: 500px;
+      }
+    
+    .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+  } 
+  @media (max-width: 1000px) {
+    .checkout-header-middle-section {
+      font-size: 20px;
+      margin-right: 60px;
+    }
+  
+    .checkout-header-middle-section a {
+      font-size: 18px;
+    }
+    .checkout-header-right-section {
+        width: auto;
+      }
+    .payment-summary {
+        grid-row: 1;
+        margin-bottom: 12px;
+      }
+      .cart-item-details-grid {
+        grid-template-columns: 100px 1fr;
+        row-gap: 30px;
+      }
+      .delivery-options {
+        grid-column: 1 / span 2;
+      }
+      .main {
+        max-width: 500px;
+      }
+    
+    .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+

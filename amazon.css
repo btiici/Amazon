@@ -1,0 +1,380 @@
+/* reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*html{
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, Arial;
+    color: rgb(33, 33, 33);
+}
+
+input, select, button {
+  font-family: Roboto, Arial;
+}
+
+button, select {
+    cursor: pointer;
+}
+
+.head {
+    background-color: rgb(19, 25, 33);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+}
+
+.head input {
+    padding: 10px;
+    width: 0;
+    height: 38px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex: 1;
+    font-size: 16px;
+}
+
+.head input:focus {
+    outline: 2px solid orange;
+}
+
+.left-section {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.left-section:hover {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.amazon-img {
+    width: 100%;
+    height: auto;
+}
+
+.mobile {
+  display: none;
+  width: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.middle {
+    display: flex;
+    max-width: 850px;
+    flex: 1;
+}
+
+.search-icon {
+    width: 45px;
+    height: 40px;
+    background-color: orange;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    flex-shrink: 0;
+    border: none;
+    margin-left: 0px;
+}
+
+.middle img {
+    height: 32px;
+    width: auto;
+}
+
+.right {
+    display: flex;
+    justify-content: end;
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.toggle{
+  position: absolute;
+  top: 1.2rem;
+  flex-direction: column;
+  width: 30px;
+  height: auto;
+  display: none;
+}
+
+.toggle img {
+  width: 100%;
+  height: auto;
+}
+
+.right-link {
+    color: white;
+    display: block;
+    padding: 1px;
+    width: 80%;
+    margin-right: 10px;
+}
+
+.right-link:hover {
+    border: 1px solid white;
+}
+
+.return {
+    display: block;
+    font-size: 13px;
+}
+
+.orders {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.cart-link {
+    display: flex;
+    color: white;
+    align-items: center;
+    position: relative;
+}
+
+.cart-link:hover {
+    border: 1px solid white;
+}
+
+.cart-quantity {
+    color: rgb(240, 136, 4);
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    left: 22px;
+    top: 4px;
+    text-align: center;
+    width: 26px;
+}
+
+.cart-text {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .cart-icon {
+    width: 50px;
+  }
+
+  .limit-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .main {
+    margin-top: 60px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .product-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-img {
+    display: flex;
+    height: 180px;
+    width: 150px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .product-container {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-right: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+  }
+
+  .product-name {
+    margin-bottom: 10px;
+    height: 40px;
+    font: weight 5px;
+    font-size: 18px;
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .rating-img {
+    margin-right: 7px;
+  }
+
+  .rating-count {
+    color: rgb(1, 124, 182);
+  }
+
+  .product-price {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .product-quantity {
+    margin-bottom: 50px;
+  }
+  
+
+  .added-to-cart {
+    opacity: 0;
+    display: flex;
+    width: 50%;
+    margin-left: 2px;
+    gap: 7px;
+    color: green;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+
+  .is-added {
+    opacity: 1;
+    display: flex;
+    width: 50%;
+    margin-left: 2px;
+    gap: 7px;
+    color: green;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+
+  .added-to-cart {
+    width: 13%;
+    height: auto;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: rgb(33, 33, 33);
+    background-color: rgb(255, 216, 20);
+    border: none;
+  }
+
+  .add-to-cart:hover {
+    background-color: rgb(247, 202, 0);
+    border: 1px solid rgb(242, 194, 0);
+  }
+
+  select {
+    color: rgb(33, 33, 33);
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(213, 217, 217);
+    border-radius: 8px;
+    padding: 3px 5px;
+    font-size: 15px;
+  }
+
+  select:focus {
+    outline: 2px solid orange;
+  }
+
+
+
+
+@media (max-width: 1000px) {
+    .products-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .left-section {
+        width: 100px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .right-link {
+        margin-left: 10px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .left-section {
+        width: 100px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .right-link {
+        margin-left: 10px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .toggle {
+      display: block;
+      margin-right: 4rem;
+    }
+
+    .mobile{
+      display: block;
+    }
+
+    .amazon-img{
+      display: none;
+    }
+
+    .right a {
+      display: none;
+    }
+
+    .middle{
+      display: flex;
+      margin-left: 2rem;
+      min-width: 300px;
+    }
+
+    .left-section:hover {
+      border: 1px solid white;
+      padding: 4px;
+  }
+
+    }
+  
+  @media (max-width: 450px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
