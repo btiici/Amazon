@@ -39,7 +39,7 @@ product.forEach((product)  => {
                 <img src="images/icons/checkmark.png">Added
             </div>            
             <button class="add-to-cart js-add-to-cart" data-product-id = "${product.id}"
-            onclick = "Added ()">Add to Cart</button>
+            >Add to Cart</button>
         </div>
  </div>`
 
