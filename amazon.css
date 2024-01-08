@@ -262,23 +262,13 @@ button, select {
     color: green;
     align-items: center;
     margin-bottom: 10px;
+    width: 13%;
+    height: auto;
     }
 
   .is-added {
     opacity: 1;
-    display: flex;
-    width: 50%;
-    margin-left: 2px;
-    gap: 7px;
-    color: green;
-    align-items: center;
-    margin-bottom: 10px;
     }
-
-  .added-to-cart {
-    width: 13%;
-    height: auto;
-  }
 
   .add-to-cart {
     width: 100%;
@@ -308,8 +298,19 @@ button, select {
     outline: 2px solid orange;
   }
 
-
-
+  .toggle-menu-dropdown {
+    display: none;
+    background-color: rgb(19, 25, 33);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    z-index: 100;
+    text-align: center;
+    overflow: hidden;
+    height: 0px;
+    transition: height 0.25s;
+  }
 
 @media (max-width: 1000px) {
     .products-grid {
@@ -343,38 +344,66 @@ button, select {
     .products-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .toggle {
-      display: block;
-      margin-right: 4rem;
-    }
 
-    .mobile{
-      display: block;
-    }
-
-    .amazon-img{
-      display: none;
-    }
-
-    .right a {
-      display: none;
-    }
-
-    .middle{
-      display: flex;
-      margin-left: 2rem;
-      min-width: 300px;
-    }
-
-    .left-section:hover {
-      border: 1px solid white;
-      padding: 4px;
-  }
-
-    }
+.right a {
+  display: none;
+}
   
-  @media (max-width: 450px) {
-    .products-grid {
-      grid-template-columns: 1fr;
-    }
+.toggle {
+    display: block;
+    margin-right: 6rem;
+    cursor: pointer;
   }
+
+
+.head .toggle-menu-opened {
+  height: 88px;
+}
+
+.head .toggle-menu-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.toggle-menu-link:hover {
+  background-color: rgb(44, 52, 69);
+}
+
+.cart-mobile-quantity {
+  color: rgb(240, 136, 4);
+}
+
+.toggle-menu-dropdown {
+  display: block;
+}
+
+
+  .mobile{
+    display: block;
+  }
+
+  .amazon-img{
+    display: none;
+  }
+
+  .middle{
+    display: flex;
+    margin-left: 2rem;
+    min-width: 300px;
+  }
+
+  .left-section:hover {
+    border: 1px solid white;
+    padding: 4px;
+}
+
+  }
+
+@media (max-width: 450px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

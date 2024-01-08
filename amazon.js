@@ -1,6 +1,22 @@
 import {cart, addToCart} from "./Cart/cart.js"
 import {product} from "./data.js"
 
+function toggleDropdownMenu() {
+    const dropdownMenu = document.querySelector('.js-toggle-menu-dropdown');
+    const isOpened = dropdownMenu.classList.contains('toggle-menu-opened');
+
+    if (!isOpened) {
+      dropdownMenu.classList.add('toggle-menu-opened');
+    } else {
+      dropdownMenu.classList.remove('toggle-menu-opened');
+    }
+  }
+
+const menu = document.querySelector('.js-toggle')
+menu.addEventListener ('click', () => {
+    toggleDropdownMenu()
+})
+
 
 let productsHTML = '';
 
@@ -59,11 +75,20 @@ function updateCartQuanity () {
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
     }
 
+function added () {
+    const addedMessage = document.querySelector('.js-added')
+    addedMessage.classList.add('.is-added')
+
+    const timeoutId = setTimeout(() => {
+        addedMessage.classList.remove('is-added');
+      }, 2000);
+}
+
 document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener ('click', () => {
         const productId = button.dataset.productId;
-       
+        added ();
         addToCart (productId);
         updateCartQuanity ();
     });
