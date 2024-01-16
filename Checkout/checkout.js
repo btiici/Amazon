@@ -20,7 +20,7 @@ function renderOrderSummary () {
 
        const deliveryOptionsId = cartItem.deliveryOptionsId;
 
-        let deliveryOption;
+        let deliveryOption = '';
 
         deliveryOptions.forEach ((option) => {
             if (option.id === deliveryOptionsId){
@@ -88,7 +88,7 @@ function renderOrderSummary () {
             const priceString = deliveryOption.priceCents
             === 0
             ? 'FREE'
-            : `$${deliveryOption.priceCents / 100} -`
+            : `$${deliveryOption.priceCents / 100} -`;
 
             const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
 
