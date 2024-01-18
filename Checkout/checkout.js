@@ -3,7 +3,7 @@ import {product} from '../data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions} from '../Cart/deliveryOptions.js'
 
-function renderOrderSummary () {
+
     let cartSummaryHtml ='';
 
     cart.forEach((cartItem) => {
@@ -20,12 +20,13 @@ function renderOrderSummary () {
 
        const deliveryOptionsId = cartItem.deliveryOptionsId;
 
-        let deliveryOption = '';
+        let deliveryOption;
 
         deliveryOptions.forEach ((option) => {
             if (option.id === deliveryOptionsId){
                 deliveryOption = option;
             }
+            
         });
 
         const today = dayjs();
@@ -34,7 +35,6 @@ function renderOrderSummary () {
             'days'
         );
         const dateString = deliveryDate.format ('dddd, MMMM D');
-
         cartSummaryHtml += `<div class="items js-items-${matchingProduct.id}">
     <div class="delivery-date">Delivery date: ${dateString} </div>
     <div class="cart-item-details-grid">
@@ -94,7 +94,7 @@ function renderOrderSummary () {
 
             html += `
             <div class="delivery-option js-delivery-option"
-            data-product-id= "${matchingProduct.id}"
+            data-product-id="${matchingProduct.id}"
             data-delivery-option-id="${deliveryOption.id}">
                 <input type="radio" 
                 ${isChecked ? 'checked' : ''}
@@ -132,9 +132,9 @@ function renderOrderSummary () {
             const productId = element.dataset.productId
             const deliveryOptionsId = element.dataset.deliveryOptionsId
             updateDeliveryOption(productId, deliveryOptionsId)
-            renderOrderSummary ();
+            /*renderOrderSummary ();*/
         })
 })
-}
 
-renderOrderSummary ();
+
+// renderOrderSummary ();

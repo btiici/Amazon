@@ -1,4 +1,4 @@
-import {cart, addToCart} from "./Cart/cart.js"
+import {carts, addToCart} from "./Cart/cart.js"
 import {product} from "./data.js"
 
 function toggleDropdownMenu() {
@@ -68,7 +68,7 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 function updateCartQuanity () {
         let cartQuantity = 0;
 
-        cart.forEach((item) => {
+        carts.forEach((item) => {
             cartQuantity += item.quantity;
         })
 
