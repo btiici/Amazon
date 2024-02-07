@@ -1,4 +1,4 @@
-import {carts, addToCart} from "./Cart/cart.js"
+import {cart, addToCart} from "./Cart/cart.js"
 import {product} from "./data.js"
 
 function toggleDropdownMenu() {
@@ -65,10 +65,10 @@ product.forEach((product)  => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-function updateCartQuanity () {
+function updateCartQuantity () {
         let cartQuantity = 0;
 
-        carts.forEach((item) => {
+        cart.forEach((item) => {
             cartQuantity += item.quantity;
         })
 
@@ -88,9 +88,8 @@ document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener ('click', () => {
         const productId = button.dataset.productId;
-        added ();
         addToCart (productId);
-        updateCartQuanity ();
+        updateCartQuantity ();
     });
 });
 

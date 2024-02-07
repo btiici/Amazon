@@ -3,9 +3,9 @@ import {product} from '../data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions} from '../Cart/deliveryOptions.js'
 
-
+function renderOrderSummary () {
     let cartSummaryHtml ='';
-
+    
     cart.forEach((cartItem) => {
         const productId = cartItem.productId
 
@@ -16,24 +16,30 @@ import {deliveryOptions} from '../Cart/deliveryOptions.js'
             if (products.id === productId){
                 matchingProduct = products;
             }
+            
         });
-
+    
        const deliveryOptionsId = cartItem.deliveryOptionsId;
 
         let deliveryOption;
-
+        let deliveryDate;
+      
         deliveryOptions.forEach ((option) => {
+      
             if (option.id === deliveryOptionsId){
                 deliveryOption = option;
+                
+                const today = dayjs();
+                 deliveryDate = today.add(
+                    deliveryOption.deliveryDays,
+                    'days'
+                );
             }
             
         });
-
-        const today = dayjs();
-        const deliveryDate = today.add(
-            deliveryOption.deliveryDays,
-            'days'
-        );
+       
+    
+    
         const dateString = deliveryDate.format ('dddd, MMMM D');
         cartSummaryHtml += `<div class="items js-items-${matchingProduct.id}">
     <div class="delivery-date">Delivery date: ${dateString} </div>
@@ -130,11 +136,12 @@ import {deliveryOptions} from '../Cart/deliveryOptions.js'
     .forEach((element) => {
         element.addEventListener ('click', () => {
             const productId = element.dataset.productId
-            const deliveryOptionsId = element.dataset.deliveryOptionsId
+            const deliveryOptionsId = element.dataset.deliveryOptionId
             updateDeliveryOption(productId, deliveryOptionsId)
-            /*renderOrderSummary ();*/
+            renderOrderSummary ();
         })
 })
+}
 
 
-// renderOrderSummary ();
+renderOrderSummary ();
