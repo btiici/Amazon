@@ -71,13 +71,16 @@ function updateCartQuantity () {
         cart.forEach((item) => {
             cartQuantity += item.quantity;
         })
+        console.log(cartQuantity) 
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+        document.querySelector('.js-cart-quantitys').innerHTML = cartQuantity
     }
 
 function added () {
     const addedMessage = document.querySelector('.js-added')
-    addedMessage.classList.add('.is-added')
+    addedMessage.classList.add('is-added')
+       
 
     const timeoutId = setTimeout(() => {
         addedMessage.classList.remove('is-added');
@@ -90,6 +93,7 @@ document.querySelectorAll('.js-add-to-cart')
         const productId = button.dataset.productId;
         addToCart (productId);
         updateCartQuantity ();
+        added();
     });
 });
 

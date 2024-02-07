@@ -13,7 +13,7 @@ if (!cart) {
     }];
 }
 
-function saveToLocalStorage () {
+export function saveToLocalStorage () {
     localStorage.setItem('Cart', JSON.stringify(cart));
 }
 
