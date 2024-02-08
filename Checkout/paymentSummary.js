@@ -2,7 +2,14 @@ import {cart} from '../Cart/cart.js'
 import {getProduct} from '../data.js';
 import {getDeliveryOption} from '../Cart/deliveryOptions.js';
 
+
 export function renderPaymentSummary () {
+    let cartQuantity = 0;
+
+    cart.forEach((item) => {
+        cartQuantity += item.quantity;
+    })
+
     let productPriceCents = 0;
     let shipppingPriceCents = 0;
 
@@ -28,7 +35,7 @@ export function renderPaymentSummary () {
         </div>
 
         <div class="payment-summary-row">
-        <div>Items (3):</div>
+        <div>Items (${cartQuantity}):</div>
         <div class="payment-summary-money">$${(productPriceCents / 100).toFixed(2)}</div>
         </div>
 

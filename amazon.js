@@ -1,6 +1,7 @@
 import {cart, addToCart} from "./Cart/cart.js"
 import {product} from "./data.js"
 
+
 function toggleDropdownMenu() {
     const dropdownMenu = document.querySelector('.js-toggle-menu-dropdown');
     const isOpened = dropdownMenu.classList.contains('toggle-menu-opened');
@@ -71,11 +72,12 @@ function updateCartQuantity () {
         cart.forEach((item) => {
             cartQuantity += item.quantity;
         })
-        console.log(cartQuantity) 
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
         document.querySelector('.js-cart-quantitys').innerHTML = cartQuantity
     }
+
+    updateCartQuantity ();
 
 function added () {
     const addedMessage = document.querySelector('.js-added')
@@ -96,6 +98,3 @@ document.querySelectorAll('.js-add-to-cart')
         added();
     });
 });
-
-
-

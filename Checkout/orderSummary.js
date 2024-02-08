@@ -1,8 +1,10 @@
-import {cart, removeFromCart, updateDeliveryOption} from "../Cart/cart.js";
+import {cart, removeFromCart, updateDeliveryOption, updateQuantity} from "../Cart/cart.js";
 import {product, getProduct} from '../data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions, getDeliveryOption} from '../Cart/deliveryOptions.js'
 import { renderPaymentSummary } from "./paymentSummary.js";
+import {renderCheckoutHeader } from './checkoutHeader.js'
+
 
 export function renderOrderSummary () {
 
@@ -44,9 +46,13 @@ export function renderOrderSummary () {
                         <span>
                         Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                         </span>
-                        <span class="update-quantity-link link-primary">
+                        <span class="update-quantity-link link-primary js-update-link"
+                        data-product-id="${matchingProduct.id}">
                         Update
-                        </span>
+                        </span>                       
+                        <input class="quantity-input js-quantity-input-${matchingProduct.id}">
+                        <span class="save-quantity-link link-primary js-save-link"
+                        data-product-id = "${matchingProduct.id}">Save</span>
                         <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${matchingProduct.id}">
                         Delete
                         </span>
@@ -62,7 +68,6 @@ export function renderOrderSummary () {
     </div>
     </div>`;
     });
-
 
     function deliveryOptionsHTML (matchingProduct, cartItem) {
 
@@ -117,8 +122,42 @@ export function renderOrderSummary () {
             container.remove();
 
             renderPaymentSummary ();
+            renderCheckoutHeader ();
         });
     });
+
+    document.querySelectorAll('.js-update-link')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
+      
+      const container = document.querySelector(
+        `.js-items-${productId}`
+      );
+      container.classList.add('is-editing-quantity')
+});
+  });
+
+  document.querySelectorAll('.js-save-link')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+        const productId = link.dataset.productId;
+
+        const container = document.querySelector(
+            `.js-items-${productId}`
+          );
+          container.classList.remove('is-editing-quantity')
+          const inputQuantity = document.querySelector(`.js-quantity-input-${productId}`)
+             const newQuantity = Number(inputQuantity.value);
+             updateQuantity(productId, newQuantity);
+             renderOrderSummary ();
+             renderCheckoutHeader ();
+             renderPaymentSummary ();
+             if(e.key === 'Enter') {
+                updateQuantity(productId, newQuantity);
+             }
+    })
+  })
 
     document.querySelectorAll('.js-delivery-option')
     .forEach((element) => {
