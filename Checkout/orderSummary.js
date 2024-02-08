@@ -2,6 +2,7 @@ import {cart, removeFromCart, updateDeliveryOption} from "../Cart/cart.js";
 import {product, getProduct} from '../data.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions, getDeliveryOption} from '../Cart/deliveryOptions.js'
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary () {
 
@@ -114,6 +115,8 @@ export function renderOrderSummary () {
             
             const container = document.querySelector(`.js-items-${productId}`)
             container.remove();
+
+            renderPaymentSummary ();
         });
     });
 
@@ -124,6 +127,7 @@ export function renderOrderSummary () {
             const deliveryOptionsId = element.dataset.deliveryOptionId
             updateDeliveryOption(productId, deliveryOptionsId)
             renderOrderSummary ();
+            renderPaymentSummary();
         })
 })
 }
