@@ -75,7 +75,6 @@ export function updateQuantity (productId, newQuantity) {
       if (productId === cartItem.productId) {
         matchingItem = cartItem;
       }
-      console.log(matchingItem)
     });
   
     matchingItem.quantity = newQuantity;

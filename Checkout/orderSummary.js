@@ -137,27 +137,24 @@ export function renderOrderSummary () {
       container.classList.add('is-editing-quantity')
 });
   });
-
+  
   document.querySelectorAll('.js-save-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
-        const productId = link.dataset.productId;
+    const productId = link.dataset.productId;
 
-        const container = document.querySelector(
-            `.js-items-${productId}`
-          );
-          container.classList.remove('is-editing-quantity')
-          const inputQuantity = document.querySelector(`.js-quantity-input-${productId}`)
-             const newQuantity = Number(inputQuantity.value);
-             updateQuantity(productId, newQuantity);
-             renderOrderSummary ();
-             renderCheckoutHeader ();
-             renderPaymentSummary ();
-             if(e.key === 'Enter') {
-                updateQuantity(productId, newQuantity);
-             }
-    })
-  })
+    const container = document.querySelector(
+        `.js-items-${productId}`
+        );
+        container.classList.remove('is-editing-quantity')
+        const inputQuantity = document.querySelector(`.js-quantity-input-${productId}`)
+            const newQuantity = Number(inputQuantity.value);
+            updateQuantity(productId, newQuantity);
+            renderOrderSummary ();
+            renderCheckoutHeader ();
+            renderPaymentSummary ();
+        })
+    });
 
     document.querySelectorAll('.js-delivery-option')
     .forEach((element) => {
