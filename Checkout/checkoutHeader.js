@@ -6,7 +6,8 @@ export function renderCheckoutHeader () {
         cart.forEach((item) => {
             cartQuantity += item.quantity;
         })
-document.querySelector('.js-carts-quantity').innerHTML = cartQuantity;
+document.querySelector('.js-carts-quantity')
+.innerHTML = cartQuantity;
 
 }
 

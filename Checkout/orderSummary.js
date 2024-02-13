@@ -29,7 +29,7 @@ export function renderOrderSummary () {
     
     
         const dateString = deliveryDate.format ('dddd, MMMM D');
-        cartSummaryHtml += `<div class="items js-items-${matchingProduct.id}">
+        cartSummaryHtml += `<div class="items js-items js-items-${matchingProduct.id}">
     <div class="delivery-date">Delivery date: ${dateString} </div>
     <div class="cart-item-details-grid">
                 <img class="product-image"
@@ -42,7 +42,7 @@ export function renderOrderSummary () {
                 <div class="product-price">
                     $${(matchingProduct.priceCents / 100).toFixed(2)}
                 </div>
-                <div class="product-quantity">
+                <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                         <span>
                         Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                         </span>
@@ -53,7 +53,7 @@ export function renderOrderSummary () {
                         <input class="quantity-input js-quantity-input-${matchingProduct.id}">
                         <span class="save-quantity-link link-primary js-save-link"
                         data-product-id = "${matchingProduct.id}">Save</span>
-                        <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${matchingProduct.id}">
+                        <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id = "${matchingProduct.id}">
                         Delete
                         </span>
                 </div>
