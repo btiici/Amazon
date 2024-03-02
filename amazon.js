@@ -11,7 +11,7 @@ function toggleDropdownMenu() {
     } else {
       dropdownMenu.classList.remove('toggle-menu-opened');
     }
-  }
+}
 
 const menu = document.querySelector('.js-toggle')
 menu.addEventListener ('click', () => {
@@ -24,7 +24,7 @@ let productsHTML = '';
 product.forEach((product)  => {
         
  const html = ` 
- <div class="product-container">
+ <div class="product-container js-product-container-${product.id}" data-product-id = "${product.id}">
         <div class="product-img">
             <img src="${product.image}" alt="">
         </div>
@@ -52,7 +52,7 @@ product.forEach((product)  => {
             </select>
         </div>
         <div>
-            <div class="added-to-cart js-added">
+            <div class="added-to-cart js-added-${product.id}">
                 <img src="images/icons/checkmark.png">Added
             </div>            
             <button class="add-to-cart js-add-to-cart" data-product-id = "${product.id}"
@@ -75,18 +75,23 @@ function updateCartQuantity () {
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
         document.querySelector('.js-cart-quantitys').innerHTML = cartQuantity
-    }
+}
 
     updateCartQuantity ();
 
-function added () {
-    const addedMessage = document.querySelector('.js-added')
-    addedMessage.classList.add('is-added')
-       
+function added (productId) {
+    let addedMessage
 
-    const timeoutId = setTimeout(() => {
-        addedMessage.classList.remove('is-added');
-      }, 2000);
+    const itemId = document.querySelector(`.js-product-container-${productId}`).dataset.productId
+    
+    if (itemId === productId) {
+        addedMessage = document.querySelector(`.js-added-${productId}`)
+        addedMessage.classList.add('is-added')   
+        
+        const timeoutId = setTimeout(() => {
+            addedMessage.classList.remove('is-added');
+          }, 2000);
+    }
 }
 
 document.querySelectorAll('.js-add-to-cart')
@@ -95,6 +100,6 @@ document.querySelectorAll('.js-add-to-cart')
         const productId = button.dataset.productId;
         addToCart (productId);
         updateCartQuantity ();
-        added();
+        added(productId);
     });
 });

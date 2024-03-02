@@ -135,7 +135,7 @@ export function renderOrderSummary () {
         `.js-items-${productId}`
       );
       container.classList.add('is-editing-quantity')
-});
+    });
   });
   
   document.querySelectorAll('.js-save-link')
@@ -165,5 +165,5 @@ export function renderOrderSummary () {
             renderOrderSummary ();
             renderPaymentSummary();
         })
-})
+    })
 }
