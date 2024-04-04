@@ -146,6 +146,7 @@ export function renderOrderSummary () {
     const container = document.querySelector(
         `.js-items-${productId}`
         );
+        console.log(container);
         container.classList.remove('is-editing-quantity')
         const inputQuantity = document.querySelector(`.js-quantity-input-${productId}`)
             const newQuantity = Number(inputQuantity.value);
@@ -155,7 +156,9 @@ export function renderOrderSummary () {
             renderPaymentSummary ();
         })
     });
+   
 
+ 
     document.querySelectorAll('.js-delivery-option')
     .forEach((element) => {
         element.addEventListener ('click', () => {
